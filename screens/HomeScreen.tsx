@@ -3,9 +3,9 @@ import { StyleSheet, View, SafeAreaView, Image } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import NavOptions from '../components/NavOptions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import { GOOGLE_MAPS_API_KEY } from "@env";
 import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../slices/navSlice';
+import { GOOGLE_MAPS_API_KEY } from "@env";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -28,12 +28,12 @@ const HomeScreen = () => {
               fontSize: 18,
             }
           }}
-          onPress={(data, details = null) => {
+          onPress={(data, details:any = null) => {
             dispatch(setOrigin({
               location: details.geometry.location,
-              description: data.description
+              description: data.description,
             }))
-
+            // console.log(data, details)
             dispatch(setDestination(null))
           }}
           fetchDetails={true}
@@ -43,7 +43,7 @@ const HomeScreen = () => {
           nearbyPlacesAPI="GooglePlacesSearch"
           minLength={2}
           query={{
-            key: 'AIzaSyDPhBCxxaBJ8uoN9uwqNwnO75_TqCRyf3I',
+            key: GOOGLE_MAPS_API_KEY,
             language: 'en',
           }}
         />
