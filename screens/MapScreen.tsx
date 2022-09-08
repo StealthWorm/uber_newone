@@ -8,6 +8,7 @@ import RideOptionsCard from '../components/RideOptionsCard';
 
 const MapScreen = () => {
   const Stack = createStackNavigator();
+
   return (
     <View>
       <View style={tw`h-1/2`}>

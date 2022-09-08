@@ -35,11 +35,9 @@ const NavigateCard = () => {
                 location: details.geometry.location,
                 description: data.description,
               })
-
               )
               navigation.navigate("RideOptionsCard");
               // console.log(data, details)
-              dispatch(setDestination(null))
             }}
           />
         </View>
