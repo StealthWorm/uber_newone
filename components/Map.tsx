@@ -21,12 +21,13 @@ const Map = () => {
 
     // zoom & fit to markers
     mapRef.current.fitToSuppliedMarkers(["origin", "destination"], {
-      edgePadding: { top: 5, left: 5, bottom: 5, right: 5 }
+      edgePadding: { top: 50, left: 50, bottom: 50, right: 50 }
     });
   }, [origin, destination])
 
   return (
     <MapView
+    userInterfaceStyle={'dark'}
       ref={mapRef}
       style={tw`flex-1`}
       mapType="mutedStandard"

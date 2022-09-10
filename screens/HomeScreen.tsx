@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, SafeAreaView, Image } from 'react-native';
+import { StyleSheet, View, SafeAreaView, Image, TextInput } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import NavOptions from '../components/NavOptions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -29,7 +29,7 @@ const HomeScreen = () => {
               fontSize: 18,
             }
           }}
-          onPress={(data, details:any = null) => {
+          onPress={(data, details: any = null) => {
             dispatch(setOrigin({
               location: details.geometry.location,
               description: data.description,
@@ -38,7 +38,7 @@ const HomeScreen = () => {
             dispatch(setDestination(null))
           }}
           fetchDetails={true}
-          returnKeyType={"search"}
+          // returnKeyType={"search"}
           enablePoweredByContainer={false}
           debounce={400}
           nearbyPlacesAPI="GooglePlacesSearch"
@@ -51,6 +51,13 @@ const HomeScreen = () => {
 
         <NavOptions />
         <NavFavourites />
+
+        {/* <TextInput
+          testID="search-home-input-id"
+          placeholder="Restaurants and cuisineis"
+          keyboardType="default"
+          maxLength={42}
+        /> */}
       </View>
     </SafeAreaView>
   )
