@@ -1,7 +1,8 @@
 import React from 'react'
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import { Icon } from 'react-native-elements';
+// import { Icon } from 'react-native-elements';
+import Icon from '@expo/vector-icons/Ionicons';
 import tw from 'tailwind-react-native-classnames';
 import { selectOrigin } from '../slices/navSlice';
 import { useSelector } from 'react-redux';
@@ -43,10 +44,10 @@ const NavOptions = () => {
             />
             <Text style={tw`mt-2 text-lg font-semibold`}>{item.title}</Text>
             <Icon
-              type="antdesign"
-              name="arrowright"
+              name="arrow-forward"
               color="white"
-              style={tw`p-2 bg-black rounded-full w-10 mt-4`}
+              size={32} 
+              style={tw`p-1 bg-black rounded-full w-10 mt-4`}
             />
           </View>
         </TouchableOpacity>
