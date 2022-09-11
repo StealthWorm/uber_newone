@@ -73,6 +73,7 @@ const Map = () => {
           title="Origin"
           description={origin.description}
           identifier="origin"
+          
         />)}
 
       {destination?.location && (
