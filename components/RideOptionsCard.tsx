@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { StyleSheet, Text, View, FlatList, Image, Platform } from 'react-native'
 import { useSelector } from 'react-redux'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { TouchableOpacity } from 'react-native'
 import Icon from '@expo/vector-icons/FontAwesome';
 import { selectTravelTimeInformation } from '../slices/navSlice';
 import { useNavigation } from '@react-navigation/native'
@@ -47,7 +47,7 @@ const RideOptionsCard = () => {
     <SafeAreaView style={tw`bg-white flex-grow`}>
       <View style={tw`flex-row justify-between items-center px-3 -top-2`}>
         <Text style={tw`text-center text-xl w-full mx-3 absolute`}>
-          Select a ride - {travelTimeInformation?.distance.text}
+          Select a ride - {travelTimeInformation?.distance?.text}
         </Text>
         <TouchableOpacity
           style={tw`rounded-full p-3`}
@@ -75,12 +75,12 @@ const RideOptionsCard = () => {
             />
             <View style={tw`-ml-2`}>
               <Text style={tw`text-xl font-semibold`}>{title}</Text>
-              <Text>{travelTimeInformation?.duration.text} Travel Time</Text>
+              <Text style={tw`text-xs text-gray-500`}>{travelTimeInformation?.duration?.text} Travel Time</Text>
             </View>
-            <Text style={tw`text-xl`}>
-              {new Intl.NumberFormat('en-US', {
+            <Text style={tw`text-lg font-semibold`}>
+              {new Intl.NumberFormat('pt-BR', {
                 style: 'currency',
-                currency: 'USD'
+                currency: 'BRL'
               }).format((travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier) / 100)
               }
             </Text>
