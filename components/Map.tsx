@@ -44,6 +44,7 @@ const Map = () => {
 
   return (
     <MapView
+      data-testid="custom-element"
       ref={mapRef}
       style={tw`flex-1`}
       mapType="mutedStandard"
@@ -73,7 +74,7 @@ const Map = () => {
           title="Origin"
           description={origin.description}
           identifier="origin"
-          
+
         />)}
 
       {destination?.location && (
