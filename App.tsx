@@ -4,8 +4,8 @@ import 'intl/locale-data/jsonp/en';
 import { StatusBar } from 'expo-status-bar';
 import { KeyboardAvoidingView } from 'react-native';
 import { Provider } from 'react-redux';
-import HomeScreen from './screens/HomeScreen';
-import MapScreen from './screens/MapScreen';
+import HomeScreen from './src/screens/HomeScreen';
+import MapScreen from './src/screens/MapScreen';
 import { store } from './store';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import 'react-native-gesture-handler';
@@ -28,7 +28,7 @@ export default function App() {
           >
             <Stack.Navigator>
               <Stack.Screen
-                name="HomeScreen"
+                name="homeScreen"
                 component={HomeScreen}
                 options={{
                   headerShown: false,
@@ -36,7 +36,7 @@ export default function App() {
               />
 
               <Stack.Screen
-                name="MapScreen"
+                name="mapScreen"
                 component={MapScreen}
                 options={{
                   headerShown: false,

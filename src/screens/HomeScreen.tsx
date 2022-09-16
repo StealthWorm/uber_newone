@@ -38,7 +38,7 @@ const HomeScreen = () => {
             dispatch(setDestination(null))
           }}
           fetchDetails={true}
-          // returnKeyType={"search"}
+          returnKeyType={"search"}
           enablePoweredByContainer={false}
           debounce={400}
           nearbyPlacesAPI="GooglePlacesSearch"
@@ -51,22 +51,9 @@ const HomeScreen = () => {
 
         <NavOptions />
         <NavFavourites />
-
-        {/* <TextInput
-          testID="search-home-input-id"
-          placeholder="Restaurants and cuisineis"
-          keyboardType="default"
-          maxLength={42}
-        /> */}
       </View>
     </SafeAreaView>
   )
 }
 
 export default HomeScreen
-
-const styles = StyleSheet.create({
-  text: {
-    color: "blue",
-  }
-})

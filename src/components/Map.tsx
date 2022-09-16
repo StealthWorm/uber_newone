@@ -23,7 +23,7 @@ const Map = () => {
 
     // zoom & fit to markers
     mapRef.current.fitToSuppliedMarkers(["origin", "destination"], {
-      edgePadding: { top: 50, left: 50, bottom: 50, right: 50 }
+      edgePadding: { top: 5, left: 5, bottom: 5, right: 5 }
     });
   }, [origin, destination])
 

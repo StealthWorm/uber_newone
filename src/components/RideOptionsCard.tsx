@@ -7,13 +7,7 @@ import Icon from '@expo/vector-icons/FontAwesome';
 import { selectTravelTimeInformation } from '../slices/navSlice';
 import { useNavigation } from '@react-navigation/native'
 import tw from 'tailwind-react-native-classnames'
-
-type props = {
-  id: string,
-  title: string,
-  multiplier: number,
-  image: string,
-}
+import { CarCard, CarCardProps } from './CarCard'
 
 const data = [
   {
@@ -36,11 +30,9 @@ const data = [
   },
 ];
 
-const SURGE_CHARGE_RATE = 1.5;
-
 const RideOptionsCard = () => {
   const navigation = useNavigation();
-  const [selected, setSelected] = useState<props>();
+  const [selected, setSelected] = useState<CarCardProps>();
   const travelTimeInformation = useSelector(selectTravelTimeInformation);
 
   return (
@@ -51,7 +43,7 @@ const RideOptionsCard = () => {
         </Text>
         <TouchableOpacity
           style={tw`rounded-full p-3`}
-          onPress={() => navigation.navigate("NavigateCard")}
+          onPress={() => navigation.navigate("navCard")}
         >
           <Icon name="chevron-left" />
         </TouchableOpacity>
@@ -60,31 +52,12 @@ const RideOptionsCard = () => {
       <FlatList
         data={data}
         keyExtractor={(item) => item.id}
-        renderItem={({ item: { id, title, multiplier, image }, item }) => (
-          <TouchableOpacity
+        renderItem={({ item }) => (
+          <CarCard
             onPress={() => setSelected(item)}
-            style={tw`flex-row justify-between items-center px-5 ${id === selected?.id ? "bg-gray-200" : ""}`}
-          >
-            <Image
-              style={{
-                width: 70,
-                height: 70,
-                resizeMode: "contain"
-              }}
-              source={{ uri: image }}
-            />
-            <View style={tw`-ml-2`}>
-              <Text style={tw`text-xl font-semibold`}>{title}</Text>
-              <Text style={tw`text-xs text-gray-500`}>{travelTimeInformation?.duration?.text} Travel Time</Text>
-            </View>
-            <Text style={tw`text-lg font-semibold`}>
-              {new Intl.NumberFormat('pt-BR', {
-                style: 'currency',
-                currency: 'BRL'
-              }).format((travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier) / 100)
-              }
-            </Text>
-          </TouchableOpacity>
+            data={item}
+            selected={selected}
+          />
         )}
       />
 
