@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, SafeAreaView, Image, TextInput } from 'react-native';
+import { View, SafeAreaView, Image } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import NavOptions from '../components/NavOptions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -38,7 +38,7 @@ const HomeScreen = () => {
             dispatch(setDestination(null))
           }}
           fetchDetails={true}
-          returnKeyType={"search"}
+          // returnKeyType={"search"}
           enablePoweredByContainer={false}
           debounce={400}
           nearbyPlacesAPI="GooglePlacesSearch"

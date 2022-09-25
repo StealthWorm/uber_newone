@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
+import React from 'react'
+import { Image, Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native'
 import tw from 'tailwind-react-native-classnames';
 import Icon from '@expo/vector-icons/Ionicons';
 import { useSelector } from 'react-redux';
@@ -31,7 +30,9 @@ export function Card({ data, ...rest }: Props) {
           style={{ width: 120, height: 120, resizeMode: "contain" }}
           source={{ uri: data.image }}
         />
-        <Text style={tw`mt-2 text-lg font-semibold`}>{data.title}</Text>
+        <Text style={tw`mt-2 text-lg font-semibold`}>
+          {data.title}
+        </Text>
         <Icon
           name="arrow-forward"
           color="white"

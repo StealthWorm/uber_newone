@@ -25,7 +25,7 @@ const NavOptions = () => {
   const [dataFlow, setDataFlow] = useState<CardProps[]>([]);
 
   function handleOpenCard({ screen }: CardProps) {
-    navigation.navigate(screen);
+    navigation.navigate(screen as any);
   }
 
   useEffect(() => {

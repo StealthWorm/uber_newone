@@ -1,11 +1,10 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import tw from 'tailwind-react-native-classnames';
 import Map from '../components/Map';
 import { createStackNavigator } from '@react-navigation/stack';
 import NavigateCard from '../components/NavigateCard';
 import RideOptionsCard from '../components/RideOptionsCard';
-import { useNavigation } from '@react-navigation/native';
 import { ButtonHome } from '../components/ButtonHome';
 
 const MapScreen = () => {

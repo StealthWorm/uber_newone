@@ -1,14 +1,7 @@
 import React from 'react';
+import { Image, Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 
-import {
-  Image,
-  Text,
-  TouchableOpacity,
-  TouchableOpacityProps,
-  View
-} from 'react-native';
 import { useSelector } from 'react-redux';
-
 import tw from 'tailwind-react-native-classnames';
 import { selectTravelTimeInformation } from '../slices/navSlice';
 
